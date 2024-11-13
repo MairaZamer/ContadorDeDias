@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 export default function ResultPage() {
   const searchParams = useSearchParams();
@@ -19,3 +20,9 @@ export default function ResultPage() {
     </div>
   );
 }
+
+export const SuspendedResultPage = () => (
+  <Suspense fallback={<div>Cargando...</div>}>
+    <ResultPage />
+  </Suspense>
+);
